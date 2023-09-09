@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boggle</title>
+</head>
+<body>
+  <nav>BOGGLE!</nav>
+  <p>High Score: <b id="high-score">{{ high_score }}</b> | Plays: <b id="count">{{ count }}</b></p>
+  <hr>
+
+  <section>
+
+    <table>
+      <tbody>
+      {% for column in board %}
+        <tr>
+          {% for row in column %}
+            <td>{{ row }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+
+    <p>Score: <b id="score">0</b></p>
+    <p>Seconds Left: <b data-v-time></b></p>
+
+    <form id="check-word">
+      <input name="word" autofocus>
+      <button type="submit">Enter</button>
+    </form>
+
+    <ul id="word-list"></ul>
+
+  </section>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
